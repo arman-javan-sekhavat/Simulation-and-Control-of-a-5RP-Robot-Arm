@@ -1,0 +1,115 @@
+<!--*************************************************************************************************************
+=========================================  Author: Arman Javan Sekhavat =========================================
+*****************************************************************************************************************-->
+
+
+
+
+<mujoco model="Robotic_Arm">
+
+    <option integrator="implicit"/>
+
+	<asset>
+		<texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+		<material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+
+        <mesh file="3D_Model/STL/link_0.STL"/>
+        <mesh file="3D_Model/STL/link_1.STL"/>
+        <mesh file="3D_Model/STL/link_2.STL"/>
+        <mesh file="3D_Model/STL/link_3.STL"/>
+        <mesh file="3D_Model/STL/link_4.STL"/>
+        <mesh file="3D_Model/STL/link_5.STL"/>
+        <mesh file="3D_Model/STL/link_6.STL"/>
+        <mesh file="3D_Model/STL/bush.STL"/>
+        <mesh file="3D_Model/STL/gripper_arm.STL"/>
+
+	</asset>
+	
+	<worldbody>
+		<geom type="plane" size="0 0 0.1" material="grid"/>
+		<light directional="false" pos="0 0 20" dir="0 0 -1" diffuse="1 1 1" active="true"/>
+
+        <body name="base" pos="0.0 0.0 0.0">
+            <geom type="mesh" mesh="link_0" pos="0.0 0.0 0.0" rgba="0.2 0.2 0.2 1.0"/>
+
+            <body name="body_1" pos="0.0 0.0 0.170">
+                <geom type="mesh" mesh="link_1" pos="0.0 0.0 0.0" rgba="1.0 1.0 1.0 1.0" density="1020"/>
+                <inertial pos="0 0  -0.0314492" xyaxes="0 0 1 -1 0 0" mass="0.35690217" diaginertia="2814.25487e-7 4440.59357e-7 5006.70786e-7"/>
+                <joint name="joint_1" type="hinge" axis="0 0 1" pos="0 0 0" limited="false" armature="0.1" damping="10.0"/>
+
+                <body name="body_2" pos="0.0 0.0 0.100">
+                    <geom type="mesh" mesh="link_2" pos="0.0 0.0 0.00" rgba="1.0 0.0 0.0 1.0" density="1020"/>
+                    <inertial pos="0 0  -0.0012139" xyaxes="0 0 -1 0 -1 0" mass="0.45195861" diaginertia="6288.91790e-7 27693.25515e-7 29455.03631e-7"/>
+                    <joint name="joint_2" type="hinge" axis="0 1 0" pos="0.0 0.0 -0.1" range="0.0 180.0" ref="+90.0" armature="0.1" damping="10.0"/>
+                    
+                    <body name="body_3" pos="0.0 0.0 0.200">
+                        <geom type="mesh" mesh="link_3" pos="0.0 0.0 0.0" rgba="1.0 1.0 1.0 1.0" density="1020"/>
+                        <inertial pos="0 0  +0.0119218" xyaxes="0 0 1 0 -1 0" mass="0.37484212" diaginertia="4327.61778e-7 23635.71296e-7 23921.73007e-7"/>
+                        <joint name="joint_3" type="hinge" axis="0 1 0" pos="0.0 0.0 -0.1" range="-120.0 +120" armature="0.1" damping="10.0"/>
+
+                        <body name="body_4" pos="0.0 0.0 0.100">
+                            <geom type="mesh" mesh="link_4" pos="0.0 0.0 0.0" rgba="1.0 0.0 0.0 1.0" density="1020"/>
+                            <inertial pos="0 0  +0.0735514" xyaxes="0 0 1 -1 0 0" mass="0.25855864" diaginertia="2599.35655e-7 10088.49390e-7 10393.03987e-7"/>
+                            <joint name="joint_4" type="hinge" axis="0 1 0" pos="0.0 0.0 0.0" range="-180.0 0.0" ref="-90.0" armature="0.1" damping="10.0"/>
+
+                            <body name="body_5" pos="0 0 0.160">
+                                <geom type="mesh" mesh="link_5" pos="0.0 0.0 0.0" rgba="1.0 1.0 1.0 1.0" density="1020"/>
+                                <inertial pos="0 0  +0.1096877" xyaxes="0 0 1 0 -1 0" mass="0.16089002" diaginertia="2264.69799e-7 7875.32745e-7 8087.03173e-7"/>
+                                <joint name="joint_5" type="hinge" axis="0 0 1" pos="0.0 0.0 0.0" limited="false" armature="0.1" damping="10.0"/>
+
+                                <body name="end_effector" pos="0 0 0.230">
+                                    <geom type="mesh" mesh="link_6" pos="0.0 0.0 0.0" rgba="1.0 0.0 0.0 1.0" density="1020"/>
+                                    <inertial pos="0 0 -0.0560843" xyaxes="0 0 1 0 -1 0" mass="0.01702190" diaginertia="47.93806e-7 562.83931e-7 562.83931e-7"/>
+                                    <joint name="joint_6" type="slide" axis="0 0 1" pos="0.0 0.0 0.0" range="0.00 0.14" armature="0.1" damping="10.0"/>
+
+                                    <camera name="Moving Cam" mode="fixed" pos="0.0 0.0 0.01" zaxis="0 0 -1"/>
+                  
+                                </body>
+
+                            </body>
+
+                        </body>
+
+
+                    </body>
+                </body>
+
+            </body>
+        </body>
+
+	</worldbody>
+
+    <actuator>
+        <motor name="motor_1" joint="joint_1" gear="100.0"/>
+        <motor name="motor_2" joint="joint_2" gear="100.0"/>
+        <motor name="motor_3" joint="joint_3" gear="100.0"/>
+        <motor name="motor_4" joint="joint_4" gear="100.0"/>
+        <motor name="motor_5" joint="joint_5" gear="100.0"/>
+        <motor name="motor_6" joint="joint_6" gear="100.0"/>
+    </actuator>
+
+    <sensor>
+        <framepos    objtype="xbody" objname="end_effector"/>
+        <framequat   objtype="xbody" objname="end_effector"/>
+        <framexaxis  objtype="xbody" objname="end_effector"/>
+        <frameyaxis  objtype="xbody" objname="end_effector"/>
+        <framezaxis  objtype="xbody" objname="end_effector"/>
+        <framelinvel objtype="xbody" objname="end_effector"/>
+        <frameangvel objtype="xbody" objname="end_effector"/>
+        <framelinacc objtype="xbody" objname="end_effector"/>
+        <frameangacc objtype="xbody" objname="end_effector"/>
+
+        <e_kinetic/>
+        <e_potential/>
+    </sensor>
+
+    <contact>
+        <exclude body1="base" body2="body_1"/>
+        <exclude body1="body_1" body2="body_2"/>
+        <exclude body1="body_2" body2="body_3"/>
+        <exclude body1="body_3" body2="body_4"/>
+        <exclude body1="body_4" body2="body_5"/>
+        <exclude body1="body_5" body2="end_effector"/>
+    </contact>
+	
+</mujoco>
