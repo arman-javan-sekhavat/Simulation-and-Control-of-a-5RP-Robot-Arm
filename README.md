@@ -11,3 +11,6 @@ using the MuJoCo and JAX libraries. The following algorithms are implemented:
 6) CTM (Computed Torque Method)
 7) TJ (Transpose Jacobian)
 8) MTJ (Modified Transpose Jacobian)
+
+
+<img width="563" height="524" alt="image" src="https://github.com/user-attachments/assets/e4db93ef-778e-45f7-9412-86e3b9ae3c8b" />
