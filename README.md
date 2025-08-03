@@ -1,4 +1,4 @@
-Simulation and Control of a 5RP Robot Arm
+# Simulation and Control of a 5RP Robot Arm
 
 This repository includes 3D models, MJCF files and the code for simulating and controlling a 6-DoF robot arm
 using the MuJoCo and JAX libraries. The following algorithms are implemented:
