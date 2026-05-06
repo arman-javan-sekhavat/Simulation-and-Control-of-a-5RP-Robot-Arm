@@ -27,4 +27,4 @@ This MATLAB Livescript file includes symbolic computations related to the manipu
 This file includes functions required for computing the inverse kinematics of the manipulator.
 
 ## InverseDynamics.py
-This file provides functions for computing the manipulator's inverse dynamics using both the Recursive Newton-Euler (RNEA) algorithm, and the Lagrangian formulation. It also provides dedicated functions to evaluate the total kinetic and potential energies of the manipulator.
+This file provides functions for computing the manipulator's inverse dynamics using both the Recursive Newton-Euler Algorithm (RNEA), and the Lagrangian formulation. It also provides dedicated functions to evaluate the total kinetic and potential energies of the manipulator.
