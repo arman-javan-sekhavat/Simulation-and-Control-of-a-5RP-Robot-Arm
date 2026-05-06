@@ -20,3 +20,9 @@ This file includes several functions required for computing the forward-kinemati
 
 ## forward_kinematics.mlx
 This MATLAB Livescript file includes symbolic computations related to the manipulator's forward kinematics.
+
+## InverseKinematics.py
+This file includes functions required for computing the inverse kinematics of the manipulator.
+
+## InverseDynamics.py
+This file provides functions for computing the manipulator's inverse dynamics using both the Recursive Newton-Euler (RNEA) algorithm, and the Lagrangian formulation. It also provides dedicated functions to evaluate the total kinetic and potential energies of the manipulator.
