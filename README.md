@@ -12,7 +12,7 @@ using the MuJoCo and JAX libraries. The following algorithms are implemented:
 7) TJ (Transpose Jacobian)
 8) MTJ (Modified Transpose Jacobian)
 
-Below yo can see a preview of the simulated environment and a brief description for the code.
+Below yo can see a preview of the simulated robot and some brief description for the code.
 
 ## Simulation Preview
 <img width="563" height="524" alt="image" src="https://github.com/user-attachments/assets/e4db93ef-778e-45f7-9412-86e3b9ae3c8b" />
